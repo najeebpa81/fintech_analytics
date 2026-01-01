@@ -1,35 +1,25 @@
-# Source Code: End-to-End Modeling Pipeline
+# Source Code: End-to-End Predictive Model
 
-This directory contains the modularized Jupyter Notebooks used to build the Credit Risk Engine. To reproduce the results found in the Executive Summary, please execute the notebooks in the numbered order below.
+This directory contains the primary codebase for the Credit Risk Pipeline. The project is contained within a single, comprehensive Jupyter Notebook to ensure a seamless narrative flow from data ingestion to model deployment strategies.
 
-## 🛠️ Execution Sequence
+## 🛠️ Main Notebook: `Predictive_Model_Loan_Approval.ipynb`
 
-### 01_Data_Cleaning_and_Leakage_Prevention.ipynb
-* **Purpose**: Performs initial data ingestion and filters for "finished" loan outcomes.
-* **Key Operations**: Removes "Current" loans to prevent data leakage and maps the `target_default` variable.
-* **Output**: A cleaned modeling dataset (`df_model`) ready for feature engineering.
+This notebook follows a systematic 14-step process to build a professional-grade credit engine:
 
-### 02_Approval_Filter_Model.ipynb
-* **Purpose**: Trains the Stage 1 "Gatekeeper" model to replicate historical approval policies.
-* **Logic**: Uses a limited feature set (`loan_amnt`, `dti`, `emp_length`) to mimic initial screening.
-* **Metric**: Optimized for high AUC-ROC (~0.96) to ensure policy alignment.
-
-### 03_Default_Risk_Engine.ipynb
-* **Purpose**: The core risk assessment model for approved applicants.
-* **Key Operations**: Implements stratified splitting (70/15/15) and handles class imbalance using XGBoost `scale_pos_weight`.
-* **Metric**: Evaluated on a hold-out test set with a focus on AUC-ROC (0.7042) and Precision-Recall.
-
-### 04_Explainability_and_Threshold_Tuning.ipynb
-* **Purpose**: Translates model probabilities into business decisions.
-* **Key Operations**: Generates SHAP global and local force plots for regulatory transparency.
-* **Analysis**: Conducts the threshold sweep to identify the optimal 0.45 cutoff for maximizing default capture.
+1.  **Data Ingestion & Integrity**: Loading Lending Club data and filtering for finished loan outcomes to prevent target leakage.
+2.  **Gate 1 (Approval Filter)**: Developing a replication model of historical approval policies using core application features.
+3.  **Feature Engineering**: Processing 40+ behavioral and financial features for Stage 2 modeling.
+4.  **Gate 2 (Default Risk Engine)**: Training an XGBoost classifier with stratified splits and class weighting (`scale_pos_weight`).
+5.  **Model Explainability**: Implementing SHAP to identify global risk drivers (Grade, Int Rate, DTI) and local prediction justifications.
+6.  **Performance Evaluation**: Measuring success via AUC-ROC (0.7042) and Precision-Recall analysis.
+7.  **Threshold Optimization**: Calculating the optimal 0.45 cutoff to maximize default capture while maintaining loan volume.
 
 ---
 
 ## 📦 Dependencies
-Ensure you have the following libraries installed before running the notebooks:
-* `pandas`, `numpy`
-* `scikit-learn`
-* `xgboost`
-* `shap`
-* `matplotlib`, `seaborn`
+To run this notebook, install the following packages:
+* `pandas` & `numpy`: Data manipulation.
+* `scikit-learn`: Data splitting and evaluation metrics.
+* `xgboost`: Gradient boosted decision trees.
+* `shap`: Model interpretability.
+* `matplotlib` & `seaborn`: Visualization.
