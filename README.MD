@@ -15,7 +15,7 @@ The projects housed here focus on high-stakes decision-making, risk mitigation, 
 * **Risk Mitigation:** Reduced the expected default rate among approved loans to ~11.4%.
 * **Explainability:** Utilized SHAP for regulatory-compliant, feature-level transparency.
 
-👉 **[Explore the Credit Risk Project](https://github.com/najeebpa81/Fintech_Analytics/tree/606ba40bfef15dcca50cff89dc24d18b43d8571c/explainable-loan-approval-default-model)**
+👉 **[Explore loan approval default model](https://github.com/najeebpa81/Fintech_Analytics/tree/606ba40bfef15dcca50cff89dc24d18b43d8571c/explainable-loan-approval-default-model)**
 
 ---
 
